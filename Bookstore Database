@@ -1,0 +1,24 @@
+CREATE TABLE Bookstore(id INTEGER PRIMARY KEY,name TEXT, author TEXT, rating INTEGER, cost INTEGER);
+
+INSERT INTO Bookstore VALUES(1, "The Hunger Games", "Suzanne Collins", 4.33, 15.99);
+INSERT INTO Bookstore VALUES(2,"To Kill a Mockingbird", "Harper Lee",4.27, 10.99);
+INSERT INTO Bookstore VALUES(3, "The Giving Tree", "Shel Silverstein", 4.38, 23.99);
+INSERT INTO Bookstore VALUES(4, "The Great Gatsby", "F.Scott Fitzgerald", 3.93, 16.99);
+INSERT INTO Bookstore VALUES(5, "Jane Eyre", "Charlotte Bronte", 4.14, 11.99);
+INSERT INTO Bookstore VALUES(6, "Lord of the Flies", "William Golding", 3.67, 9.99);
+INSERT INTO Bookstore VALUES(7, "Les-Miserables", "Victor Hugo", 4.20, 13.99);
+INSERT INTO Bookstore VALUES(8, "Fahrenheit 451", "Ray Bradbury", 3.97, 10.99);
+INSERT INTO Bookstore VALUES(9, "The Catcher in the Rye","J.D. Salinger" , 3.80, 11.99);
+INSERT INTO Bookstore VALUES(10, "Brave New World" , "J.D. Salinger", 3.90, 3.99);
+INSERT INTO Bookstore VALUES(11, "Fahrenheit 451", "Ray Bradbury", 3.97, 5.99);
+INSERT INTO Bookstore VALUES(12, "A Thousand Spelndid Suns", "Audrey NIffenegger", 3.99, 4.99);
+INSERT INTO Bookstore VALUES(13, "The Princess Bride", "William Goldman", 4.46, 7.99);
+INSERT INTO Bookstore VALUES(14, "The Secret Garden", "Frances Hodgson Burnett", 4.15, 19.99);
+INSERT INTO Bookstore VALUEs(15, "The Outsiders", "S.E. Hinton", 4.12, 8.99);
+
+SELECT * FROM Bookstore;
+SELECT * FROM Bookstore ORDER BY cost;
+SELECT * FROM Bookstore WHERE cost > 14.99 ORDER BY cost;
+SELECT MAX(cost) FROM Bookstore 
+
+/* This is my first store database that I created here. Notice how I organized the display by cost.*/
