@@ -1,0 +1,63 @@
+CREATE TABLE Movie_Stars (id INTEGER PRIMARY KEY, Name TEXT, Age INTEGER, Country TEXT);
+
+
+INSERT INTO Movie_Stars VALUES(1,"Zendaya Coleman", 26, "USA");
+INSERT INTO Movie_Stars VALUES(2, "Tom Holland", 27, "United Kingdom");
+INSERT INTO Movie_Stars VALUES(3, "Jack Black", 53, "USA");
+INSERT INTO Movie_Stars VALUES(4, "Tanya Haden", 51, "USA");
+INSERT INTO Movie_Stars VALUES(5, "Tyler Perry", 53, "USA");
+INSERT INTO Movie_Stars VALUES(6, "Kevin Hart", 43, "USA");
+INSERT INTO Movie_Stars VALUES(7,"Dwayne Johnson", 51, "USA");
+INSERT INTO Movie_Stars VALUES(8,"Eddie Murphy",62,"USA");
+INSERT INTO Movie_Stars VALUES(9,"Marlon Wayans",50,"USA");
+INSERT INTO Movie_Stars VALUES(10,"Jamie Foxx",55,"USA");
+INSERT INTO Movie_Stars VALUES(11,"Brad Pitt",59,"USA");
+INSERT INTO Movie_Stars VALUES(12,"Halle Berry", 56, "USA");
+INSERT INTO Movie_Stars VALUES(13,"Jim Carrey", 61, "Canada");
+INSERT INTO Movie_Stars VALUES(14,"Coco Jones", 25 , "USA");
+INSERT INTO Movie_Stars VALUES(15,"Terry Crews",54,"USA");
+
+
+
+CREATE TABLE Movies ( Id INTEGER PRIMARY KEY, Movie_Stars_ID TEXT , Title TEXT, Genre TEXT, Release_year INTEGER);
+INSERT INTO Movies VALUES(1, 1, "Spider-Man: Far From Home", "Action", 2019 );
+INSERT INTO Movies VALUES(2,2, "Onward", "Childrens Film", 2020);
+INSERT INTO Movies VALUES(3,3,"High Fidelity", "Comedy",2000);
+INSERT INTO Movies VALUES(4,4,"The Muppets", "Childrens music", 2011);
+INSERT INTO Movies VALUES(5,6,"Ride Along", "Comedy", 2014);
+INSERT INTO Movies VALUES(6,5,"Madeas Family Reunion", "Comedy", 2006);
+INSERT INTO Movies VALUES(7,7,"Moana","Family",2016);
+INSERT INTO Movies VALUES(8,8,"Coming to America","Comedy", 1988);
+INSERT INTO Movies VALUES(9,12,"Catwoman", "Action",2004);
+INSERT INTO Movies VALUES(10,14,"Let it Shine" , "Musical",2012);
+INSERT INTO Movies VALUES(11,15,"White Chicks", "Comedy",2004);
+INSERT INTO Movies VALUES(12,10,"Ray","Musical",2004);
+INSERT INTO Movies VALUES(13,9,"Scary Movie","Horror",2000);
+INSERT INTO Movies VALUES(14,11, "Bullet Train","Action",2022);
+INSERT INTO Movies VALUES(15,13,"The Mask","Comedy",1994);
+
+
+
+
+
+SELECT * FROM Movie_Stars;
+SELECT * FROM Movies;
+
+/* Make a query that shows all the actors and the movies the have starred in. Be sure to include all the information about the movie.*/
+
+SELECT Movie_Stars.Name, Movies.Title, Movies.Genre, Movies.Release_year 
+From Movie_Stars
+JOIN Movies
+ON Movie_Stars.id = Movies.Movie_Stars_ID
+GROUP BY name;
+
+/* What Actor Have made movies in the Genre 'Comedy'?*/
+
+SELECT Movie_Stars.Name , Movies.Title, Movies.Genre
+FROM Movie_Stars
+JOIN Movies
+ON Movie_Stars.id = Movies.Movie_Stars_ID
+WHERE Movies.Genre = "Comedy"
+GROUP BY Movie_Stars.Name;
+
+/* This database is one that I mixed up a little bit. I didnt want some of the Id's to match but the outcome still remained the same.*/ 
