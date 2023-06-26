@@ -48,15 +48,7 @@ ORDER BY duration_ms DESC
 LIMIT 1 ; 
 
 
-SELECT *
-  FROM Spotifydata;
-  
-/* What's the average danceability for the 10 most popular songs? */ 
- 
-SELECT track_name, AVG(danceability) 
-FROM BIT_DB.Spotifydata
-GROUP BY track_name 
-LIMIT 10 ;
+
 
 /* List all the track names that are 90 and above in popularity as 'Most Popular' , and track names that are 80 and above as 'Popular'. Everything else can be listed as 'Least Popular'. */ 
 
