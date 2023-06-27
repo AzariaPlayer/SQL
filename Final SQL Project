@@ -1,0 +1,84 @@
+/* How many Invoices were there in 2009? */ 
+
+SELECT * FROM chinook.invoices ; 
+
+SELECT COUNT(*) FROM chinook.invoices
+WHERE InvoiceDate LIKE '%2009%' ; 
+
+/* Show only the Customers from Brazil. */ 
+
+SELECT * FROM chinook.customers; 
+
+SELECT CustomerID, FirstName, LastName, Country
+FROM chinook.customers
+WHERE Country = 'Brazil' ; 
+
+/* Show Customers (their full names, customer ID, and country) who are not in the US. */ 
+
+SELECT * FROM chinook.customers; 
+
+SELECT CustomerID, FirstName, LastName, Country
+FROM chinook.customers
+WHERE Country <> 'USA'
+GROUP BY CustomerID ; 
+
+/* Show the Employees who are Sales Agents. */ 
+
+SELECT * FROM chinook.employees ; 
+
+SELECT EmployeeId, FirstName, LastName, Title
+FROm chinook.employees
+WHERE title = 'Sales Support Agent' ; 
+
+
+/* Find the Invoices of customers who are from Brazil.The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.*/ 
+ SELECT * FROM chinook.invoices ; 
+SELECT * FROM chinook.customers; 
+
+
+SELECT  c_customers.CustomerId, c_customers.FirstName , c_customers.LastName, c_invoices.InvoiceId , c_invoices.InvoiceDate , c_invoices.BillingCountry
+FROM chinook.customers AS 'c_customers'
+LEFT JOIN chinook.invoices AS 'c_invoices'
+ON c_customers.CustomerId = c_invoices.CustomerId 
+WHERE c_invoices.BillingCountry = 'Brazil' 
+ORDER BY c_customers.CustomerId ; 
+
+
+/* How many Invoices where from USA? */
+
+SELECT COUNT(*) FROM chinook.invoices
+WHERE BillingCountry = 'USA' ; 
+
+
+/* Put the artist and albums together in one table. */ 
+
+SELECT * FROM chinook.albums; 
+SELECT * FROM chinook.artists; 
+
+SELECT c_artists.Name, c_albums.Title
+FROM chinook.artists AS c_artists
+JOIN chinook.albums AS c_albums
+ON c_artists.ArtistId = c_albums.ArtistID 
+GROUP BY c_artists.Name ; 
+
+/* Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre. */
+SELECT * FROM chinook.albums; 
+SELECT * FROM chinook.media_types; 
+SELECT * FROM chinook.genres; 
+SELECT * FROM chinook.tracks; 
+
+
+/* Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre. */
+
+SELECT c_Tracks.Name AS 'Track Name', c_Albums.Title AS 'Album Title', c_MediaTypes.Name AS 'Media Type', c_Genre.Name AS 'Genre'
+FROM chinook.tracks AS c_Tracks
+
+JOIN chinook.Albums AS c_Albums
+ON c_Albums.AlbumId = c_Tracks.AlbumId
+
+JOIN chinook.Media_Types AS c_MediaTypes
+ON c_MediaTypes.MediaTypeId = c_Tracks.MediaTypeId
+
+JOIN chinook.Genres As c_Genre
+ON c_Genre.GenreId = c_Tracks.GenreId;
+
